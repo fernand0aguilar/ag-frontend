@@ -11,7 +11,6 @@ import Header from '../components/Header';
 import Layout from '../components/Layout';
 
 const StyledCustomHeightDiv = styled.div`
-  height: ${window.screen.height - 600};
 `;
 
 const IndexPage = ({
