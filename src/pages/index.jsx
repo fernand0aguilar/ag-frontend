@@ -11,6 +11,7 @@ import Header from '../components/Header';
 import Layout from '../components/Layout';
 
 const StyledCustomHeightDiv = styled.div`
+  margin-top: -600px;
 `;
 
 const IndexPage = ({

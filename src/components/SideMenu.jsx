@@ -9,7 +9,7 @@ import menuItems from './sideBarItems';
 import useStyles from './menuBarStyles';
 
 const MenuBar = props => {
-  const [value, setValue] = props ? props : useState(0);
+  const [value, setValue] = useState(0);
   const [menu, setMenu] = useState({});
   const { className, ...rest } = props;
   const classes = useStyles();
