@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { Link } from 'gatsby';
 import { Flex } from 'grid-emotion';
+import { Layout } from 'antd';
 
-const Wrapper = styled.footer`
+const Wrapper = styled(Layout.Footer)`
   background: ${props => props.theme.colors.greyDark};
   color: ${props => props.theme.colors.greyLight};
   a {
@@ -50,11 +51,9 @@ const Footer = ({ isCase }) => {
             <div>Contact Us</div>
           </React.Fragment>
         ) : (
-          <React.Fragment>
-            <div>
-              Copyright &copy; {year} by{' Alexandar Gligorijevich'}
-            </div>
-          </React.Fragment>
+          <div>
+            Copyright &copy; {year} by{' Alexandar Gligorijevich'}
+          </div>
         )}
       </Inner>
     </Wrapper>

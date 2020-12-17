@@ -5,11 +5,15 @@ import Helmet from 'react-helmet';
 import styled from 'react-emotion';
 import Img from 'gatsby-image';
 import { Box } from 'grid-emotion';
-import Layout from '../components/Layout';
+import { Layout } from 'antd';
+
+import SideMenu from '../components/SideMenu';
+import CustomLayout from '../components/Layout';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 import config from '../../config/website';
+import theme from '../../config/theme';
 
 const Hero = styled.section`
   width: 100%;
@@ -95,24 +99,27 @@ const Content = styled.main`
 const CaseTemplate = ({ data: { prismicCaseStudy: caseNode } }) => {
   const { data } = caseNode;
   return (
-    <div>
+    <CustomLayout>
+      <Header isCase />
       <Layout>
-        <Header isCase />
-        <Helmet title={`${data.title.text} | ${config.siteTitle}`} />
-        <SEO caseNode={caseNode} casePath={caseNode.uid} caseSEO />
-        <Hero>
-          <Img fluid={data.header_image.localFile.childImageSharp.fluid} />
-          <TitleWrapper py={4}>
-            <Title>{data.title.text}</Title>
-          </TitleWrapper>
-        </Hero>
-        <Wrapper py={4} px={4} mx="auto">
-          <SubTitle>{data.subtitle.text}</SubTitle>
-          <Content dangerouslySetInnerHTML={{ __html: data.content.html }} />
-        </Wrapper>
-        <Footer isCase />
+        <SideMenu />
+        <Layout.Content style={{ background: theme.bg, margin: '24px 16px 0' }}>
+          <Helmet title={`${data.title.text} | ${config.siteTitle}`} />
+          <SEO caseNode={caseNode} casePath={caseNode.uid} caseSEO />
+          <Hero>
+            <Img fluid={data.header_image.localFile.childImageSharp.fluid} />
+            <TitleWrapper py={4}>
+              <Title>{data.title.text}</Title>
+            </TitleWrapper>
+          </Hero>
+          <Wrapper py={4} px={4} mx="auto">
+            <SubTitle>{data.subtitle.text}</SubTitle>
+            <Content dangerouslySetInnerHTML={{ __html: data.content.html }} />
+          </Wrapper>
+        </Layout.Content>
       </Layout>
-    </div>
+      <Footer isCase />
+    </CustomLayout>
   );
 };
 
