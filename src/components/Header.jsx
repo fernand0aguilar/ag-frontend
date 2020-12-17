@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { Link } from 'gatsby';
 import { Flex } from 'grid-emotion';
+import { Menu } from 'antd';
 
 const Wrapper = styled.header`
-  background: ${props => props.theme.colors.greyMedium};
+  background-color: ${props => props.theme.colors.bg};
   color: ${props => props.theme.colors.text};
   a {
     color: ${props => props.theme.colors.text};
@@ -42,7 +43,7 @@ const StyledLink = styled(Link)`
 
 const MenuButtons = styled(Link)`
   transform: translateX(0);
-  background-color: ${props => props.theme.colors.greyMedium};
+  background-color: ${props => props.theme.colors.bg};
   position: relative;
   z-index: 1;
   transition: all 200ms ease-out;

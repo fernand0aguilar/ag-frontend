@@ -27,6 +27,23 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: 'gatsby-plugin-less',
+      options: {
+        lessOptions: {
+          javascriptEnabled: true,
+          modifyVars: {
+            'body-background': '#edefe8',
+            'component-background': '#edefe8',
+            'background-color-light': '#edefe8',
+            'layout-body-background': '#edefe8',
+            // 'primary-color': '#edefe8',
+            'layout-header-background': '#edefe8',
+            'layout-sider-background': '#edefe8',
+          },
+        },
+      },
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-lodash',

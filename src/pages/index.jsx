@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import styled from 'react-emotion';
 
 import { Layout, Carousel, Menu } from 'antd';
-import styled from 'react-emotion';
 import theme from '../../config/theme';
 
-import MenuBar from '../components/SideMenu';
 import CustomHeader from '../components/Header';
 import CustomLayout from '../components/Layout';
 
@@ -15,9 +14,13 @@ const { SubMenu } = Menu;
 
 const StyledCustomHeightDiv = styled.div`
   height: 600px;
-  color: #c3c3c3;
+  color: ${theme.colors.text};
   text-align: center;
-  background: #c3c3c3;
+  background-color: ${theme.colors.greyMedium};
+`;
+
+const CustomSider = styled(Sider)`
+  background-color: ${theme.colors.greyMedium};
 `;
 
 const IndexPage = ({
@@ -35,7 +38,7 @@ const IndexPage = ({
 
   return (
     <CustomLayout>
-      <Sider
+      <CustomSider
         breakpoint="lg"
         collapsedWidth="0"
         onBreakpoint={broken => {
@@ -50,7 +53,7 @@ const IndexPage = ({
         <Menu
           theme="light"
           onClick={handleClick}
-          style={{ }}
+          style={{}}
           defaultOpenKeys={['sub1']}
           selectedKeys={[current]}
           mode="inline"
@@ -76,7 +79,7 @@ const IndexPage = ({
             <Menu.Item key="12">Option 12</Menu.Item>
           </SubMenu>
         </Menu>
-      </Sider>
+      </CustomSider>
       <Layout>
         <CustomHeader />
         <Content style={{ background: theme.bg, margin: '24px 16px 0' }}>
@@ -84,6 +87,7 @@ const IndexPage = ({
             {edges.map(c => (
               <StyledCustomHeightDiv>
                 <img
+                  style={{ width: '100%', height: '100%' }}
                   key={c.node.uid}
                   alt={c.node.data.subtitle.text}
                   src={c.node.data.header_image.localFile.childImageSharp.fluid.src}
@@ -95,7 +99,7 @@ const IndexPage = ({
         <Footer style={{ background: theme.bg, textAlign: 'center' }}>
           Alexandar Gligorijevich © 2020 Created by Fernando Aguilar
         </Footer>
-        </Layout>
+      </Layout>
       {/* <Layout>
         <CustomHeader />
         <MenuBar value={value} setValue={setValue} />
@@ -127,9 +131,7 @@ export const pageQuery = graphql`
               localFile {
                 childImageSharp {
                   fluid(
-                    maxWidth: 1920
-                    maxHeight: 900
-                    quality: 90
+                    quality: 100
                     traceSVG: { color: "#021212" }
                     cropFocus: ENTROPY
                   ) {
