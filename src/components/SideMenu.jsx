@@ -9,7 +9,6 @@ import menuItems from './sideBarItems';
 import useStyles from './menuBarStyles';
 
 const MenuBar = props => {
-  console.log(props);
   const [value, setValue] = props;
   const [menu, setMenu] = useState({});
   const { className, ...rest } = props;
