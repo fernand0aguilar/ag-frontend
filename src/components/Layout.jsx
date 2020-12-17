@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { injectGlobal } from 'react-emotion';
 import { ThemeProvider } from 'emotion-theming';
-
+import { Layout } from 'antd'
 import SEO from './SEO';
 import theme from '../../config/theme';
 
@@ -89,17 +89,17 @@ injectGlobal`
   }
 `;
 
-const Layout = ({ children }) => (
+const CustomLayout = ({ children }) => (
   <ThemeProvider theme={theme}>
-    <React.Fragment>
+    <Layout>
       <SEO />
       {children}
-    </React.Fragment>
+    </Layout>
   </ThemeProvider>
 );
 
-Layout.propTypes = {
+CustomLayout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
 };
 
-export default Layout;
+export default CustomLayout;

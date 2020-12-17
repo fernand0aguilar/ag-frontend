@@ -36,3 +36,5 @@ yarn-error.log*
 website/node_modules/
 website/node_modules/.bin/acorn
 /website/node_modules
+.cache/
+public/page-data/

@@ -9,16 +9,16 @@ import menuItems from './sideBarItems';
 import useStyles from './menuBarStyles';
 
 const MenuBar = props => {
-  const [value, setValue] = props ? props : useState(0);
+  console.log(props);
+  const [value, setValue] = props;
   const [menu, setMenu] = useState({});
   const { className, ...rest } = props;
   const classes = useStyles();
 
-  console.log(props);
-  
   const onChange = param => {
     setValue(param);
   };
+
   const handleClick = item => {
     const newData = { ...menu, [item]: !menu[item] };
     setMenu(newData);
