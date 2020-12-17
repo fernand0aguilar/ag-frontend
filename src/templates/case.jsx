@@ -97,7 +97,7 @@ const CaseTemplate = ({ data: { prismicCaseStudy: caseNode } }) => {
   return (
     <div>
       <Layout>
-        <Header isCase="true" />
+        <Header isCase />
         <Helmet title={`${data.title.text} | ${config.siteTitle}`} />
         <SEO caseNode={caseNode} casePath={caseNode.uid} caseSEO />
         <Hero>

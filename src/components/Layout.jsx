@@ -4,7 +4,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { injectGlobal } from 'react-emotion';
 import { ThemeProvider } from 'emotion-theming';
-import { Layout } from 'antd'
 import SEO from './SEO';
 import theme from '../../config/theme';
 
@@ -91,10 +90,10 @@ injectGlobal`
 
 const CustomLayout = ({ children }) => (
   <ThemeProvider theme={theme}>
-    <Layout>
+    <div>
       <SEO />
       {children}
-    </Layout>
+    </div>
   </ThemeProvider>
 );
 

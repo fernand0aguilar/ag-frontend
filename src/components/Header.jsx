@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { Link } from 'gatsby';
 import { Flex } from 'grid-emotion';
-import { Menu } from 'antd';
 
 const Wrapper = styled.header`
   background-color: ${props => props.theme.colors.bg};
@@ -41,28 +40,9 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const MenuButtons = styled(Link)`
-  transform: translateX(0);
-  background-color: ${props => props.theme.colors.bg};
-  position: relative;
-  z-index: 1;
-  transition: all 200ms ease-out;
-  margin: 15px 0 15px 0;
-  padding: 5px 12px 7px;
-  text-transform: uppercase;
-  &:before {
-    padding-right: 8px;
-  }
-  &:hover {
-    color: ${props => props.theme.colors.text};
-    transform: translateX(-6px);
-    text-decoration: underline;
-  }
-`;
-
-const Logo = styled.h3`
+const Logo = styled.h1`
   position: absolute;
-  top: 30px;
+  top: 3px;
   left: 0;
   right: 0;
   text-align: center;
@@ -72,9 +52,9 @@ const Header = ({ isCase }) => {
   const menu = isCase ? (
     <React.Fragment>
       <StyledLink to="/">Return to Home</StyledLink>
-      <Logo>
-        <Link to="/">Alexandar Gligorijevich</Link>
-      </Logo>
+      <Link to="/">
+        <Logo>Alexandar Gligorijevich</Logo>
+      </Link>
       <StyledLink to="/">Back</StyledLink>
     </React.Fragment>
   ) : (
@@ -82,10 +62,6 @@ const Header = ({ isCase }) => {
       <Logo>
         <Link to="/">Alexandar Gligorijevich</Link>
       </Logo>
-      <div>
-        <MenuButtons to="hello-world">Work</MenuButtons>
-        <MenuButtons to="/">Info</MenuButtons>
-      </div>
     </React.Fragment>
   );
 
